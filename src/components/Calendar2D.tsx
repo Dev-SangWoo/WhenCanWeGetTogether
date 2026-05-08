@@ -225,7 +225,12 @@ export default function Calendar2D({ roomId, onMetaLoad, onParticipantsUpdate }:
                   `} 
                   onClick={() => handleDateClick(dk)}
                 >
-                  {commonDays.has(dk) && dk >= todayKey && <div className={styles.crownIcon}>👑</div>}
+                  {commonDays.has(dk) && dk >= todayKey && (
+                    <div className={styles.crownWrapper}>
+                      <span className={styles.crownIcon}>👑</span>
+                      <span className={styles.crownText}>모두 가능!</span>
+                    </div>
+                  )}
                   <div className={styles.dayNumber}>{d.day}</div>
                   
                   <div className={styles.nameList}>

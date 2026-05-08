@@ -237,28 +237,41 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
-@keyframes crownPulse {
-  0% { 
-    transform: translateX(-30%) scale(1); 
-  }
-  50% { 
-    transform: translateX(-30%) scale(1.15); 
-  }
-  100% { 
-    transform: translateX(-30%) scale(1); 
-  }
+.crownWrapper {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+  animation: crownPulse 2s ease-in-out infinite;
 }
 
 .crownIcon {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-30%);
   font-size: 1.4rem;
-  z-index: 5;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-  animation: crownPulse 2s ease-in-out infinite;
-  pointer-events: none;
+}
+
+.crownText {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #fff;
+  background: var(--accent-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes crownPulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
 }
 
 .dayNumber {
@@ -380,28 +393,41 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
-@keyframes crownPulse {
-  0% { 
-    transform: translateX(-30%) scale(1); 
-  }
-  50% { 
-    transform: translateX(-30%) scale(1.15); 
-  }
-  100% { 
-    transform: translateX(-30%) scale(1); 
-  }
+.crownWrapper {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+  animation: crownPulse 2s ease-in-out infinite;
 }
 
 .crownIcon {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-30%);
   font-size: 1.4rem;
-  z-index: 5;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-  animation: crownPulse 2s ease-in-out infinite;
-  pointer-events: none;
+}
+
+.crownText {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #fff;
+  background: var(--accent-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes crownPulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
 }
 
 .dayNumber {
