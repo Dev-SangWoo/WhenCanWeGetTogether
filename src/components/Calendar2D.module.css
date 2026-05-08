@@ -1,0 +1,512 @@
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem 3rem;
+  background: var(--bg-panel);
+  border-radius: 24px;
+  border: var(--border-glow);
+  color: var(--text-main);
+  overflow-y: auto;
+}
+
+.calendarHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.monthTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-game);
+}
+
+.crownLegend {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background: rgba(16, 185, 129, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  display: inline-block;
+}
+
+.crownLabel {
+  color: var(--color-available);
+}
+
+.navBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.modeSelector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 0.5rem;
+}
+
+.modeBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.modeBtn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.modeBtn.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.unavailable.active {
+  color: var(--color-unavailable);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+.tentative.active {
+  color: var(--color-tentative);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+
+.navigation {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.navBtn {
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.navBtn:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.dayNames {
+  display: grid;
+  grid-template-columns: 50px repeat(7, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 800;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: 50px repeat(7, 1fr);
+  gap: 1rem;
+  flex: 1;
+}
+
+.weekSelector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-dim);
+  font-size: 1.2rem;
+}
+
+.weekSelector:hover {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.dayCell {
+  aspect-ratio: 1.1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.dayCell:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-primary);
+  transform: translateY(-4px);
+  z-index: 10;
+}
+
+.cellUnavailable {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.cellTentative {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.cellAvailable {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+}
+
+.nameList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.nameTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.nameTagUn {
+  background: var(--color-unavailable);
+  color: white;
+}
+
+.nameTagTe {
+  background: var(--color-tentative);
+  color: var(--bg-dark);
+}
+
+.isPast {
+  opacity: 0.15;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.isPast:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@keyframes crownPulse {
+  0% { 
+    transform: translateX(-30%) scale(1); 
+  }
+  50% { 
+    transform: translateX(-30%) scale(1.15); 
+  }
+  100% { 
+    transform: translateX(-30%) scale(1); 
+  }
+}
+
+.crownIcon {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-30%);
+  font-size: 1.4rem;
+  z-index: 5;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  animation: crownPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dayNumber {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.otherMonth {
+  opacity: 0.2;
+}
+
+.statusDotContainer {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotUnavailable { 
+  background: var(--color-unavailable);
+  box-shadow: 0 0 8px var(--color-unavailable);
+}
+.dotTentative { 
+  background: var(--color-tentative);
+  box-shadow: 0 0 8px var(--color-tentative);
+}
+
+.slotStats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.unavailableText { color: var(--color-unavailable); }
+.tentativeText { color: var(--color-tentative); }
+
+@media (max-width: 768px) {
+  .calendarContainer {
+    padding: 1rem;
+    border-radius: 16px;
+    height: auto;
+    overflow-y: visible;
+  }
+  .calendarHeader {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .monthTitle {
+    font-size: 1.5rem;
+  }
+  .navBtns {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .modeSelector {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .modeBtn {
+    flex: 1;
+    white-space: nowrap;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  .dayNames, .daysGrid {
+    grid-template-columns: 30px repeat(7, 1fr);
+    gap: 0.25rem;
+  }
+  .dayCell {
+    padding: 0.25rem;
+    border-radius: 8px;
+  }
+  .dayNumber {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+  }
+  .nameTag {
+    font-size: 0.55rem;
+    padding: 1px 2px;
+  }
+  .weekSelector {
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+  .crownIcon {
+    font-size: 1rem;
+    top: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dayNames, .daysGrid {
+    grid-template-columns: 20px repeat(7, 1fr);
+  }
+  .weekSelector {
+    font-size: 0.7rem;
+  }
+}
+
+.isPast {
+  opacity: 0.15;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.isPast:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@keyframes crownPulse {
+  0% { 
+    transform: translateX(-30%) scale(1); 
+  }
+  50% { 
+    transform: translateX(-30%) scale(1.15); 
+  }
+  100% { 
+    transform: translateX(-30%) scale(1); 
+  }
+}
+
+.crownIcon {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-30%);
+  font-size: 1.4rem;
+  z-index: 5;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  animation: crownPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dayNumber {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.otherMonth {
+  opacity: 0.2;
+}
+
+.statusDotContainer {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotUnavailable { 
+  background: var(--color-unavailable);
+  box-shadow: 0 0 8px var(--color-unavailable);
+}
+.dotTentative { 
+  background: var(--color-tentative);
+  box-shadow: 0 0 8px var(--color-tentative);
+}
+
+.slotStats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.unavailableText { color: var(--color-unavailable); }
+.tentativeText { color: var(--color-tentative); }
+
+@media (max-width: 768px) {
+  .calendarContainer {
+    padding: 1rem;
+    border-radius: 16px;
+    height: auto;
+    overflow-y: visible;
+  }
+  .calendarHeader {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .monthTitle {
+    font-size: 1.5rem;
+  }
+  .navBtns {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .modeSelector {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .modeBtn {
+    flex: 1;
+    white-space: nowrap;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  .dayNames, .daysGrid {
+    grid-template-columns: 30px repeat(7, 1fr);
+    gap: 0.25rem;
+  }
+  .dayCell {
+    padding: 0.25rem;
+    border-radius: 8px;
+  }
+  .dayNumber {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+  }
+  .nameTag {
+    font-size: 0.55rem;
+    padding: 1px 2px;
+  }
+  .weekSelector {
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+  .crownIcon {
+    font-size: 1rem;
+    top: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dayNames, .daysGrid {
+    grid-template-columns: 20px repeat(7, 1fr);
+  }
+  .weekSelector {
+    font-size: 0.7rem;
+  }
+}
