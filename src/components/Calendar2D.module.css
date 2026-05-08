@@ -237,47 +237,72 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
-.crownWrapper {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
+.cellHeader {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 2px;
-  pointer-events: none;
-  animation: crownPulse 2s ease-in-out infinite;
-}
-
-.crownIcon {
-  font-size: 1.4rem;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-}
-
-.crownText {
-  font-size: 0.65rem;
-  font-weight: 900;
-  color: #fff;
-  background: var(--accent-primary);
-  padding: 2px 6px;
-  border-radius: 4px;
-  white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-@keyframes crownPulse {
-  0% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.1); }
-  100% { transform: translateX(-50%) scale(1); }
+  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 .dayNumber {
   font-size: 1.1rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+}
+
+.crownWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-primary);
+  padding: 2px 8px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px var(--accent-glow);
+  animation: crownGlow 2s ease-in-out infinite;
+  white-space: nowrap;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+
+.crownIcon {
+  font-size: 1rem;
+}
+
+.crownText {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+@keyframes crownGlow {
+  0% { box-shadow: 0 0 5px var(--accent-glow); }
+  50% { box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-1px); }
+  100% { box-shadow: 0 0 5px var(--accent-glow); }
+}
+
+@media (max-width: 768px) {
+  .cellHeader {
+    margin-bottom: 2px;
+  }
+  .dayNumber {
+    font-size: 0.8rem;
+  }
+  .crownWrapper {
+    padding: 1px 4px;
+    gap: 2px;
+  }
+  .crownIcon {
+    font-size: 0.7rem;
+  }
+  .crownText {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .crownText {
+    display: none; /* Mobile very small: show icon only to save space */
+  }
 }
 
 .otherMonth {
@@ -393,47 +418,72 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
-.crownWrapper {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
+.cellHeader {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 2px;
-  pointer-events: none;
-  animation: crownPulse 2s ease-in-out infinite;
-}
-
-.crownIcon {
-  font-size: 1.4rem;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-}
-
-.crownText {
-  font-size: 0.65rem;
-  font-weight: 900;
-  color: #fff;
-  background: var(--accent-primary);
-  padding: 2px 6px;
-  border-radius: 4px;
-  white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-@keyframes crownPulse {
-  0% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.1); }
-  100% { transform: translateX(-50%) scale(1); }
+  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 .dayNumber {
   font-size: 1.1rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+}
+
+.crownWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent-primary);
+  padding: 2px 8px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px var(--accent-glow);
+  animation: crownGlow 2s ease-in-out infinite;
+  white-space: nowrap;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+
+.crownIcon {
+  font-size: 1rem;
+}
+
+.crownText {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+@keyframes crownGlow {
+  0% { box-shadow: 0 0 5px var(--accent-glow); }
+  50% { box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-1px); }
+  100% { box-shadow: 0 0 5px var(--accent-glow); }
+}
+
+@media (max-width: 768px) {
+  .cellHeader {
+    margin-bottom: 2px;
+  }
+  .dayNumber {
+    font-size: 0.8rem;
+  }
+  .crownWrapper {
+    padding: 1px 4px;
+    gap: 2px;
+  }
+  .crownIcon {
+    font-size: 0.7rem;
+  }
+  .crownText {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .crownText {
+    display: none; /* Mobile very small: show icon only to save space */
+  }
 }
 
 .otherMonth {
