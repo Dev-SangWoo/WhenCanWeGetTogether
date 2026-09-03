@@ -285,13 +285,11 @@ server.ts
 | UI | React `19.2.4` |
 | Language | TypeScript `5` |
 | Realtime | Socket.IO `4.8.3` |
-| HTTP Server | Node.js HTTP + Express `5.2.1` |
-| State API | ioredis / ioredis-mock |
+| HTTP Server | Node.js HTTP Server |
+| State Layer | ioredis-mock `8.13.1` |
 | Styling | CSS Modules |
 | Runtime | tsx |
 | Quality | ESLint |
-
-> `@react-three/fiber`, `@react-three/drei`, `three` 패키지도 현재 의존성에 포함되어 있지만, 핵심 일정 조율 흐름은 2D Calendar UI를 기준으로 동작합니다.
 
 ---
 
