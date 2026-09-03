@@ -26,7 +26,7 @@
 모임마다 하나의 Room을 만들고 참가자가 캘린더에서 **불가능 / 미정** 날짜만 표시하면, 변경 내용이 같은 Room의 모든 사용자에게 즉시 동기화됩니다. 아무도 불가능하거나 미정으로 표시하지 않은 날짜는 **👑 모두 가능!** 상태로 한눈에 확인할 수 있습니다.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[모임 생성] --> B[Room 입장]
     B --> C[불가능 / 미정 날짜 선택]
     C --> D[Socket.IO 실시간 동기화]
@@ -37,6 +37,18 @@ flowchart LR
 
 ---
 
+## My Role
+
+**개인 프로젝트 — 기획, UI/UX, 프론트엔드 및 실시간 서버 구현**
+
+- Next.js App Router 기반 Room Dashboard와 일정 조율 화면 구현
+- Socket.IO 이벤트 기반 참가자·일정·채팅 실시간 동기화
+- Next.js Request Handler와 Socket.IO를 통합한 Custom Node Server 구성
+- 날짜·주 단위 일정 선택과 공통 가능일 계산 로직 구현
+- CSS Modules 기반 반응형 게임 UI 설계
+
+---
+
 ## At a Glance
 
 | | |
@@ -44,7 +56,7 @@ flowchart LR
 | **Product** | 여러 참가자의 일정을 Room 단위로 취합하는 실시간 일정 조율 서비스 |
 | **Scheduling Model** | 기본값은 `가능`, 사용자는 `불가능 / 미정`만 표시 |
 | **Realtime** | Room 참여자, 일정 Block, 채팅 메시지를 Socket.IO로 동기화 |
-| **Room** | 제목·설명·선택적 비밀번호·6자리 Room Code |
+| **Room** | 제목·설명·선택적 비밀번호·6자리 영문·숫자 조합 Room Code |
 | **Calendar UX** | 일 단위 선택, 주 단위 일괄 선택, 과거 날짜 입력 방지, 공통 가능일 강조 |
 | **Server** | Next.js와 Socket.IO를 하나의 Custom HTTP Server에서 실행 |
 | **State Layer** | `ioredis-mock` 기반 Room Metadata / Participant / Availability 상태 관리 |
@@ -331,6 +343,11 @@ Room Metadata, 참가자, 일정 Block은 `ioredis-mock` 기반 상태에 저장
 ---
 
 ## Getting Started
+
+### Requirements
+
+- Node.js 20.9 이상
+- npm
 
 ### Install
 
